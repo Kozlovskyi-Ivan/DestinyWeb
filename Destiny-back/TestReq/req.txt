@@ -1,0 +1,5 @@
+﻿/Destiny2/Milestones/
+/Destiny2/Milestones/{milestoneHash}/Content/ 
+/Destiny2/Manifest/{entityType}/{hashIdentifier}/
+"http://www.bungie.net/Platform//Destiny2/Manifest/DestinyMilestoneDefinition/3660836525/" milestoneHash
+"http://www.bungie.net/Platform///Destiny2/Manifest/DestinyActivityDefinition/2693136605/" activity

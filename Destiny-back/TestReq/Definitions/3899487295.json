@@ -1,0 +1,39 @@
+{
+  "Response": {
+    "displayProperties": {
+      "description": "Complete bounties for the Gunsmith to earn Powerful Rewards.",
+      "name": "Spare Parts",
+      "hasIcon": false
+    },
+    "milestoneType": 3,
+    "recruitable": false,
+    "showInExplorer": false,
+    "showInMilestones": true,
+    "explorePrioritizesActivityImage": false,
+    "hasPredictableDates": false,
+    "quests": {
+      "1413813747": {
+        "questItemHash": 1413813747,
+        "displayProperties": {
+          "description": "Complete bounties from this vendor to earn powerful rewards.",
+          "name": "Spare Parts",
+          "icon": "/common/destiny2_content/icons/7f0839df6072e7e4086d0b67c118e06e.png",
+          "hasIcon": true
+        },
+        "trackingUnlockValueHash": 0
+      }
+    },
+    "isInGameMilestone": true,
+    "defaultOrder": 6000,
+    "hash": 3899487295,
+    "index": 30,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "ErrorCode": 1,
+  "ThrottleSeconds": 0,
+  "ErrorStatus": "Success",
+  "Message": "Ok",
+  "MessageData": {
+  }
+}

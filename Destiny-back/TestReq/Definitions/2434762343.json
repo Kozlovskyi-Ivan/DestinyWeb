@@ -1,0 +1,154 @@
+{
+  "Response": {
+    "displayProperties": {
+      "description": "Complete Crucible matches in any Crucible core playlists.",
+      "name": "Crucible Core Playlist Challenge",
+      "icon": "/common/destiny2_content/icons/DestinyMilestoneDefinition_6e3e2457fd1f7a9df5c491213bcaf133.png",
+      "hasIcon": true
+    },
+    "image": "/img/destiny_content/pgcr/vanguard_strike_playlist.jpg",
+    "milestoneType": 3,
+    "recruitable": false,
+    "friendlyName": "MILESTONE_WEEKLY_CRUCIBLE_CORE",
+    "showInExplorer": false,
+    "showInMilestones": true,
+    "explorePrioritizesActivityImage": false,
+    "hasPredictableDates": true,
+    "rewards": {
+      "326786556": {
+        "categoryHash": 326786556,
+        "categoryIdentifier": "ChallengeSourcedReward",
+        "displayProperties": {
+          "description": "",
+          "name": "Rewards",
+          "hasIcon": false
+        },
+        "rewardEntries": {
+          "326786556": {
+            "rewardEntryHash": 326786556,
+            "rewardEntryIdentifier": "ChallengeSourcedReward",
+            "items": [
+              {
+                "itemHash": 3114385605,
+                "quantity": 0
+              }
+            ],
+            "displayProperties": {
+              "description": "Complete Crucible matches in any Crucible core playlists.",
+              "name": "Crucible Core Playlist Challenge",
+              "hasIcon": false
+            },
+            "order": 0,
+            "earnedUnlockHash": 0,
+            "redeemedUnlockHash": 0
+          }
+        },
+        "order": 0
+      }
+    },
+    "isInGameMilestone": false,
+    "activities": [
+      {
+        "activityHash": 3176544780,
+        "challenges": [
+          {
+            "challengeObjectiveHash": 3118376466,
+            "completeUnlockHash": 0
+          }
+        ],
+        "activityGraphNodes": [
+          {
+            "activityGraphHash": 111706917,
+            "activityGraphNodeHash": 1724655640
+          }
+        ]
+      },
+      {
+        "activityHash": 2304691867,
+        "challenges": [
+          {
+            "challengeObjectiveHash": 3118376466,
+            "completeUnlockHash": 0
+          }
+        ],
+        "activityGraphNodes": [
+          {
+            "activityGraphHash": 111706917,
+            "activityGraphNodeHash": 3236693919
+          }
+        ]
+      },
+      {
+        "activityHash": 135537449,
+        "challenges": [
+          {
+            "challengeObjectiveHash": 3118376466,
+            "completeUnlockHash": 0
+          }
+        ],
+        "activityGraphNodes": [
+          {
+            "activityGraphHash": 111706917,
+            "activityGraphNodeHash": 2958620965
+          }
+        ]
+      },
+      {
+        "activityHash": 740891329,
+        "challenges": [
+          {
+            "challengeObjectiveHash": 3118376466,
+            "completeUnlockHash": 0
+          }
+        ],
+        "activityGraphNodes": [
+          {
+            "activityGraphHash": 111706917,
+            "activityGraphNodeHash": 4260627989
+          }
+        ]
+      },
+      {
+        "activityHash": 1478171612,
+        "challenges": [
+          {
+            "challengeObjectiveHash": 3118376466,
+            "completeUnlockHash": 0
+          }
+        ],
+        "activityGraphNodes": [
+          {
+            "activityGraphHash": 111706917,
+            "activityGraphNodeHash": 39921727
+          }
+        ]
+      },
+      {
+        "activityHash": 914148167,
+        "challenges": [
+          {
+            "challengeObjectiveHash": 3118376466,
+            "completeUnlockHash": 0
+          }
+        ],
+        "activityGraphNodes": [
+          {
+            "activityGraphHash": 111706917,
+            "activityGraphNodeHash": 3272747891
+          }
+        ]
+      }
+    ],
+    "defaultOrder": 2000,
+    "hash": 2434762343,
+    "index": 40,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "ErrorCode": 1,
+  "ThrottleSeconds": 0,
+  "ErrorStatus": "Success",
+  "Message": "Ok",
+  "MessageData": {
+  }
+}

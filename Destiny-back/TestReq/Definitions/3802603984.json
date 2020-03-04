@@ -1,0 +1,39 @@
+{
+  "Response": {
+    "displayProperties": {
+      "description": "Complete Bounties for the Drifer to earn Powerful Rewards.",
+      "name": "Shady Schemes",
+      "hasIcon": false
+    },
+    "milestoneType": 3,
+    "recruitable": false,
+    "showInExplorer": false,
+    "showInMilestones": true,
+    "explorePrioritizesActivityImage": false,
+    "hasPredictableDates": false,
+    "quests": {
+      "4186783783": {
+        "questItemHash": 4186783783,
+        "displayProperties": {
+          "description": "Complete bounties from this vendor to earn powerful rewards.",
+          "name": "Shady Schemes",
+          "icon": "/common/destiny2_content/icons/7f0839df6072e7e4086d0b67c118e06e.png",
+          "hasIcon": true
+        },
+        "trackingUnlockValueHash": 0
+      }
+    },
+    "isInGameMilestone": true,
+    "defaultOrder": 6000,
+    "hash": 3802603984,
+    "index": 27,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "ErrorCode": 1,
+  "ThrottleSeconds": 0,
+  "ErrorStatus": "Success",
+  "Message": "Ok",
+  "MessageData": {
+  }
+}
