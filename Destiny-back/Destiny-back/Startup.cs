@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Destiny_back.Modules;
+using Microsoft.EntityFrameworkCore;
 
 namespace Destiny_back
 {
@@ -24,6 +26,8 @@ namespace Destiny_back
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string con = @"Server=(localdb)\mssqllocaldb;Database=Destinytest01;Trusted_Connection=True;";
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(con));
             services.AddControllers();
         }
 
@@ -34,6 +38,7 @@ namespace Destiny_back
             {
                 app.UseDeveloperExceptionPage();
             }
+
 
             app.UseRouting();
 
