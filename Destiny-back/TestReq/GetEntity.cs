@@ -96,12 +96,14 @@ namespace TestReq
                     //Console.WriteLine(mod);
                 }
             }
-            //var result = httpClient.GetAsync("http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityDefinition/3879860661").Result;
-            //HttpContent httpContent = result.Content;
-            //var json = await httpContent.ReadAsStringAsync();
-            var result = httpClient.GetAsync("http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityModifierDefinition/605585258").Result;
+            var result = httpClient.GetAsync("http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityDefinition/3879860661").Result;
             HttpContent httpContent = result.Content;
             var json = await httpContent.ReadAsStringAsync();
+            File.WriteAllText(@"C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\TestReq\Activity.json", json);
+            result = httpClient.GetAsync("http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityModifierDefinition/605585258").Result;
+            httpContent = result.Content;
+            json = await httpContent.ReadAsStringAsync();
+            File.WriteAllText(@"C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\TestReq\ActivityModifier.json", json);
             Console.WriteLine();
         }
 
