@@ -6,14 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200307165441_DesTest.cs" />
-    <Compile Remove="Migrations\20200307165441_DesTest.Designer.cs" />
-    <Compile Remove="Migrations\20200307170729_DesTest.cs" />
-    <Compile Remove="Migrations\20200307170729_DesTest.Designer.cs" />
-    <Compile Remove="Migrations\20200307171131_DesTest.cs" />
-    <Compile Remove="Migrations\20200307171131_DesTest.Designer.cs" />
-    <Compile Remove="Migrations\20200307171448_DesTest.cs" />
-    <Compile Remove="Migrations\20200307171448_DesTest.Designer.cs" />
+    <Compile Remove="Migrations\20200309181619_dest.cs" />
+    <Compile Remove="Migrations\20200309181619_dest.Designer.cs" />
+    <Compile Remove="Migrations\20200312193955_dest-2.cs" />
+    <Compile Remove="Migrations\20200312193955_dest-2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

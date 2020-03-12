@@ -29,10 +29,12 @@ namespace Destiny_back.Modules
         {
             modelBuilder.Entity<Milestone>()
                 .HasMany(m=>m.Activities)
-                .WithOne(a=>a.Milestone);
+                .WithOne(a=>a.Milestone)
+                .OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<Activity>()
                 .HasMany(m=>m.Modifiers)
-                .WithOne(a=>a.Activity);
+                .WithOne(a=>a.Activity)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

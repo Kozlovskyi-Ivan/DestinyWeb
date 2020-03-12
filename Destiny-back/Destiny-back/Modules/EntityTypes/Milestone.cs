@@ -23,6 +23,7 @@ namespace Destiny_back.Modules.EntityTypes
     {
         public Milestone Milestone{ get; set; }
         [Key]
+        public int Id { get; set; }
         public uint ActivityHash { get; set; }
         public string name { get; set; }
         public string description { get; set; }
@@ -33,6 +34,7 @@ namespace Destiny_back.Modules.EntityTypes
     {
         public Activity Activity { get; set; }
         [Key]
+        public int Id { get; set; }
         public uint ModifierHash { get; set; }
         public string name { get; set; }
         public string description { get; set; }

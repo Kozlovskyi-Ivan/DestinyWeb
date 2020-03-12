@@ -11,6 +11,8 @@ namespace Destiny_back.Modules.EntityTypes
         public List<AvailableQuests> availableQuests { get; set; }
         public List<DestinyPublicMilestoneChallengeActivity> activities { get; set; }
         public List<DestinyPublicMilestoneVendor> vendors { get; set; }
+        public DestinyDisplayPropertiesDefinition displayProperties { get; set; }
+
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
     }

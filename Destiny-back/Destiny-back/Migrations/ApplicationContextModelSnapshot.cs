@@ -21,8 +21,12 @@ namespace Destiny_back.Migrations
 
             modelBuilder.Entity("Destiny_back.Modules.EntityTypes.Activity", b =>
                 {
-                    b.Property<long>("ActivityHash")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("ActivityHash")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("MilestoneHash")
@@ -34,7 +38,7 @@ namespace Destiny_back.Migrations
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ActivityHash");
+                    b.HasKey("Id");
 
                     b.HasIndex("MilestoneHash");
 
@@ -72,11 +76,15 @@ namespace Destiny_back.Migrations
 
             modelBuilder.Entity("Destiny_back.Modules.EntityTypes.Modifier", b =>
                 {
-                    b.Property<long>("ModifierHash")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long?>("ActivityHash")
+                    b.Property<int?>("ActivityId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("ModifierHash")
                         .HasColumnType("bigint");
 
                     b.Property<string>("description")
@@ -85,9 +93,9 @@ namespace Destiny_back.Migrations
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ModifierHash");
+                    b.HasKey("Id");
 
-                    b.HasIndex("ActivityHash");
+                    b.HasIndex("ActivityId");
 
                     b.ToTable("Modifiers");
                 });
@@ -96,14 +104,16 @@ namespace Destiny_back.Migrations
                 {
                     b.HasOne("Destiny_back.Modules.EntityTypes.Milestone", "Milestone")
                         .WithMany("Activities")
-                        .HasForeignKey("MilestoneHash");
+                        .HasForeignKey("MilestoneHash")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Destiny_back.Modules.EntityTypes.Modifier", b =>
                 {
                     b.HasOne("Destiny_back.Modules.EntityTypes.Activity", "Activity")
                         .WithMany("Modifiers")
-                        .HasForeignKey("ActivityHash");
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

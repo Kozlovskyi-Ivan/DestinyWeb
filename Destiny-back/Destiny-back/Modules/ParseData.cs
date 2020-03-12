@@ -14,6 +14,7 @@ namespace Destiny_back.Modules
     {
         HttpClient httpClient;
         List<DestinyPublicMilestone> destinyPublics;
+        //ApplicationContext context;
         public ParseData()
         {
             httpClient = new HttpClient();
@@ -22,20 +23,96 @@ namespace Destiny_back.Modules
         }
         public void Start()
         {
+            //destinyPublics.Clear();
+            using (var db=new ApplicationContext())
+            {
+                if (db.Milestones.Any())
+                {
+                    db.RemoveRange(db.Milestones);
+                    db.SaveChanges();
+                    Console.WriteLine();
+                }
+            }
             GetEntity();
+            EntetyToDb();
+
             Console.WriteLine();
+        }
+
+        public void EntetyToDb()
+        {
+            using (var Db=new ApplicationContext())
+            {
+                foreach (var milestone in destinyPublics)
+                {
+                    Milestone mile = new Milestone() {
+                        Hash=milestone.milestoneHash,
+                        StartDate=milestone.startDate,
+                        EndDate=milestone.endDate };
+                    if (milestone.displayProperties!=null)
+                    {
+                        mile.description = milestone.displayProperties.description;
+                        mile.name = milestone.displayProperties.name;
+                    }
+
+                    if (milestone.activities!=null)
+                    {
+                        List<Activity> activities = new List<Activity>();
+                        foreach (var activity in milestone.activities)
+                        {
+                            Activity activityTemp = new Activity { 
+                                ActivityHash=activity.activityHash,
+                                name=activity.displayProperties.name,
+                                description=activity.displayProperties.description};
+                            if (activity.modifiers != null)
+                            {
+                                List<Modifier> modifiers = new List<Modifier>();
+                                foreach (var mod in activity.modifiers)
+                                {
+                                    modifiers.Add(new Modifier { 
+                                        name=mod.displayProperties.name,
+                                        description=mod.displayProperties.description,
+                                        ModifierHash=mod.modifierHashes});
+                                }
+                                
+                                activityTemp.Modifiers = modifiers;
+                            }
+                            activities.Add(activityTemp);
+                        }
+                        mile.Activities = activities;
+                        
+                    }
+                    if (milestone.vendors!=null)
+                    {
+                        foreach (var vendor in milestone.vendors)
+                        {
+                            mile.VendorHash = vendor.vendorHash;
+                        }
+                    }
+                    if (milestone.availableQuests!=null)
+                    {
+                        foreach (var quests in milestone.availableQuests)
+                        {
+                            mile.QuestItemHash = quests.questItemHash;
+                        }
+                    }
+                    Db.Milestones.Add(mile);
+                    //if (mile.Activities!=null)
+                    //{
+                    //    Db.Activites.AddRange(mile.Activities);
+                    //}
+                    Db.SaveChanges();
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
         }
         public async void GetEntity()
         {
-            var result = httpClient.GetAsync("http://www.bungie.net/Platform/Destiny2/Milestones/").Result;
-
-            HttpContent httpContent = result.Content;
-            var json = await httpContent.ReadAsStringAsync();
-            JObject jObject = JObject.Parse(json);
+            JObject jObject = JObject.Parse(await GetRequestResult("http://www.bungie.net/Platform/Destiny2/Milestones/"));
 
             IList<JToken> parseJson = jObject["Response"].Children().Children().ToList();
 
-            //List<DestinyPublicMilestone> 
             destinyPublics = new List<DestinyPublicMilestone>();
 
             foreach (var item in parseJson)
@@ -48,28 +125,19 @@ namespace Destiny_back.Modules
                     {
                         foreach (var actes in temp.activities)
                         {
-                            var Actresult = httpClient.GetAsync($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityDefinition/{actes.activityHash}/").Result;
-
-                            httpContent = Actresult.Content;
-                            json = await httpContent.ReadAsStringAsync();
-                            jObject = JObject.Parse(json);
+                            jObject = JObject.Parse(await GetRequestResult($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityDefinition/{actes.activityHash}/"));
                             DestinyPublicMilestoneChallengeActivity d= jObject["Response"].ToObject<DestinyPublicMilestoneChallengeActivity>();
-                            //var asd=(string)jObject["Response"]["displayProperties"]["name"];
                             actes.displayProperties = d.displayProperties;
-                            Console.WriteLine();
+                            if (temp.activities.Count==1)
+                            {
+                                temp.displayProperties = d.displayProperties;
+                            }
+
                             if (actes.modifierHashes!=null)
                             {
                                 foreach (var modes in actes.modifierHashes)
                                 {
-                                    var qresult = httpClient.GetAsync($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityModifierDefinition/{modes}/").Result;
-
-                                    httpContent = qresult.Content;
-                                    json = await httpContent.ReadAsStringAsync();
-                                    jObject = JObject.Parse(json);
-                                    //DestinyActivityModifierDefinition dasd= 
-                                    //    new DestinyActivityModifierDefinition { modifierHashes = modes, 
-                                    //        displayProperties = jObject["Response"]["displayProperties"].ToObject<DestinyDisplayPropertiesDefinition>() };
-                                    //actes.modifiers.Add(dasd);
+                                    jObject = JObject.Parse(await GetRequestResult($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityModifierDefinition/{modes}/"));
                                     actes.modifiers.Add(new DestinyActivityModifierDefinition { modifierHashes = modes, displayProperties = jObject["Response"]["displayProperties"].ToObject<DestinyDisplayPropertiesDefinition>() });
                                 }
                             }
@@ -79,28 +147,34 @@ namespace Destiny_back.Modules
                     {
                         foreach (var quests in temp.availableQuests)
                         {
-                            var qresult = httpClient.GetAsync($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyMilestoneDefinition/{temp.milestoneHash}/").Result;
-
-                            httpContent = qresult.Content;
-                            json = await httpContent.ReadAsStringAsync();
-                            jObject = JObject.Parse(json);
+                            jObject = JObject.Parse(await GetRequestResult($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyMilestoneDefinition/{temp.milestoneHash}/"));
                             quests.displayProperties= jObject["Response"]["quests"][$"{quests.questItemHash}"]["displayProperties"].ToObject<DestinyDisplayPropertiesDefinition>();
-
-                            Console.WriteLine();
-                        }
+                            temp.displayProperties= jObject["Response"]["displayProperties"].ToObject<DestinyDisplayPropertiesDefinition>();                        }
                     }
 
                 }
                 catch (JsonReaderException e)
                 {
-
-                    //Console.WriteLine("asd");
+                    
                 }
                 catch (JsonSerializationException e)
                 {
-                    //Console.WriteLine("asd");
+
                 }
+                catch (Exception e)
+                {
+
+                }
+                
             }
+        }
+
+        public async Task<string> GetRequestResult(string url)
+        {
+            var Actresult = httpClient.GetAsync(url).Result;
+            HttpContent httpContent = Actresult.Content;
+            string json = await httpContent.ReadAsStringAsync();
+            return json;
         }
     }
 }
