@@ -124,4 +124,7 @@ C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\D
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\System.ComponentModel.Annotations.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.MvcApplicationPartsAssemblyInfo.cache

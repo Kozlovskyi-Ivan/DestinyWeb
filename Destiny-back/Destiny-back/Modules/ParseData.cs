@@ -23,20 +23,20 @@ namespace Destiny_back.Modules
         }
         public void Start()
         {
-            //destinyPublics.Clear();
             using (var db=new ApplicationContext())
             {
-                if (db.Milestones.Any())
+                if (!db.Milestones.Any() || db.Milestones.First((x)=>x.name== "Leviathan Raid").EndDate<DateTime.Now)
                 {
+                    Console.WriteLine();
                     db.RemoveRange(db.Milestones);
                     db.SaveChanges();
-                    Console.WriteLine();
+                    GetEntity();
+                    EntetyToDb();
                 }
             }
-            GetEntity();
-            EntetyToDb();
+            //GetEntity();
+            //EntetyToDb();
 
-            Console.WriteLine();
         }
 
         public void EntetyToDb()
@@ -97,10 +97,6 @@ namespace Destiny_back.Modules
                         }
                     }
                     Db.Milestones.Add(mile);
-                    //if (mile.Activities!=null)
-                    //{
-                    //    Db.Activites.AddRange(mile.Activities);
-                    //}
                     Db.SaveChanges();
                     Console.WriteLine();
                 }
@@ -128,11 +124,6 @@ namespace Destiny_back.Modules
                             jObject = JObject.Parse(await GetRequestResult($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityDefinition/{actes.activityHash}/"));
                             DestinyPublicMilestoneChallengeActivity d= jObject["Response"].ToObject<DestinyPublicMilestoneChallengeActivity>();
                             actes.displayProperties = d.displayProperties;
-                            if (temp.activities.Count==1)
-                            {
-                                temp.displayProperties = d.displayProperties;
-                            }
-
                             if (actes.modifierHashes!=null)
                             {
                                 foreach (var modes in actes.modifierHashes)
@@ -143,13 +134,15 @@ namespace Destiny_back.Modules
                             }
                         }
                     }
+                    jObject = JObject.Parse(await GetRequestResult($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyMilestoneDefinition/{temp.milestoneHash}/"));
+                    temp.displayProperties = jObject["Response"]["displayProperties"].ToObject<DestinyDisplayPropertiesDefinition>();
                     if (temp.availableQuests!=null)
                     {
                         foreach (var quests in temp.availableQuests)
                         {
-                            jObject = JObject.Parse(await GetRequestResult($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyMilestoneDefinition/{temp.milestoneHash}/"));
-                            quests.displayProperties= jObject["Response"]["quests"][$"{quests.questItemHash}"]["displayProperties"].ToObject<DestinyDisplayPropertiesDefinition>();
-                            temp.displayProperties= jObject["Response"]["displayProperties"].ToObject<DestinyDisplayPropertiesDefinition>();                        }
+                            //quests.displayProperties = jObject["Response"]["quests"][$"{quests.questItemHash}"]["displayProperties"].ToObject<DestinyDisplayPropertiesDefinition>();
+                            temp.displayProperties = jObject["Response"]["quests"][$"{quests.questItemHash}"]["displayProperties"].ToObject<DestinyDisplayPropertiesDefinition>();
+                        }
                     }
 
                 }

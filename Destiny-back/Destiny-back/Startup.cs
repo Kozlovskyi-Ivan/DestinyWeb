@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Destiny_back.Modules;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Destiny_back
 {
@@ -28,6 +29,9 @@ namespace Destiny_back
         {
             string con = @"Server=(localdb)\mssqllocaldb;Database=Destinytest01;Trusted_Connection=True;";
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(con));
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             services.AddControllers();
         }
 
@@ -39,6 +43,7 @@ namespace Destiny_back
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
 
             app.UseRouting();
 
