@@ -4,7 +4,7 @@
 .col {
   min-height: 100%;
   width: 33.333%; /* Можно задать любую другую ширину блока */
-  background: grey;
+  background:orange;
   margin: .5rem;
 }
 .row {

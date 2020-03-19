@@ -2,7 +2,6 @@ C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\D
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\appsettings.json
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Destiny-back.exe
-C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.csprojAssemblyReference.cache
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\staticwebassets\Destiny-back.StaticWebAssets.Manifest.cache
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\staticwebassets\Destiny-back.StaticWebAssets.xml
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.AssemblyInfoInputs.cache
@@ -128,3 +127,4 @@ C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\D
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.csprojAssemblyReference.cache

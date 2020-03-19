@@ -25,11 +25,16 @@ namespace Destiny_back.Modules
         {
             using (var db=new ApplicationContext())
             {
-                if (!db.Milestones.Any() || db.Milestones.First((x)=>x.name== "Leviathan Raid").EndDate<DateTime.Now)
+                if (!db.Milestones.Any() || db.Milestones.First((x)=>x.name=="Leviathan Raid").EndDate<DateTime.UtcNow)
                 {
                     Console.WriteLine();
-                    db.RemoveRange(db.Milestones);
-                    db.SaveChanges();
+                    //if (db.Milestones==null)
+                    {
+                        db.RemoveRange(db.Milestones);
+                        db.SaveChanges();
+                    }
+                    //db.RemoveRange(db.Milestones);
+                    //db.SaveChanges();
                     GetEntity();
                     EntetyToDb();
                 }

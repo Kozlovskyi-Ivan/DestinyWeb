@@ -1,3 +1,4 @@
+import { Activities } from './../types/Activities';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,6 +12,9 @@ constructor(private http: HttpClient) { }
 
 getMilestone(name: string){
   return this.http.get(this.url + '/' +'Milestones'+'/' +name)
+}
+getActivities(name: string){
+  return this.http.get<Activities[]>(this.url + '/' +'Milestones'+'/Nightfall/' +name)
 }
 
 }

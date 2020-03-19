@@ -2,9 +2,9 @@
   box-sizing: border-box;
 }
 .col {
-  min-height: 100%;
+  height: 100px;
   width: 33.333%; /* Можно задать любую другую ширину блока */
-  background: grey;
+  background:red;
   margin: .5rem;
 }
 .row {
@@ -12,5 +12,5 @@
   flex-flow: row nowrap;
   align-items: center;
   align-content: center;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
 }

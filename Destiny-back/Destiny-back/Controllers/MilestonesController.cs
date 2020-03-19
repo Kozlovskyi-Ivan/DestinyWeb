@@ -52,11 +52,12 @@ namespace Destiny_back.Controllers
                 return BadRequest(ModelState);
             }
             var milestone = context.Milestones.FirstOrDefault(x => x.Hash == id);
-            var nightfall = from n in context.Activites.Include(x=>x.Modifiers)
+            var nightfall = from n in context.Activites.Include(x => x.Modifiers)
                             where n.Milestone == milestone
                             orderby n
-                            select n;
-
+                            select new { n.name , n.description,n.Modifiers};
+                            //select n;
+            
 
             //Milestone milestone = new Milestone { name = "asda", Activities = context.Milestones.FirstOrDefault(x => x.name == name).Activities };
             if (nightfall == null)

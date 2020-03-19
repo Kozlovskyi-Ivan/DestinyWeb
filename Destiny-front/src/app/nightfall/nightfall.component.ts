@@ -1,3 +1,5 @@
+import { Activities } from './../../types/Activities';
+import { DataserviceService } from './../dataservice.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NightfallComponent implements OnInit {
 
-  constructor() { }
+  Activities?:Activities[]=[];
+  constructor(private dataservice:DataserviceService ) { }
 
   ngOnInit() {
+    this.dataservice.getActivities('1942283261')
+    .subscribe((data: Activities[])=>{this.Activities=data});
   }
 
 }

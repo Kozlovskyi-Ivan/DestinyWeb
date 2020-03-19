@@ -1,3 +1,10 @@
-<p>
-  nightfall works!
-</p>
+<div class="row">
+<div class="col" *ngFor="let Activity of Activities">
+  <div><h3>{{Activity.name}}</h3>
+  <p>{{Activity.description}}</p>
+    <div *ngFor="let Mod of Activity.modifiers">
+      <p>{{Mod.name}}</p>
+    </div>
+</div>
+</div>
+</div>
