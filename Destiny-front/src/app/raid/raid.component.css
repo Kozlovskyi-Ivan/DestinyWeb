@@ -1,8 +1,10 @@
 * {
   box-sizing: border-box;
+
 }
 .col {
   min-height: 100%;
+
   width: 33.333%; /* Можно задать любую другую ширину блока */
   background:orange;
   margin: .5rem;
@@ -13,4 +15,5 @@
   align-items: center;
   align-content: center;
   justify-content: space-between;
+  
 }

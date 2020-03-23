@@ -2,9 +2,15 @@
 <div class="col" *ngFor="let Activity of Activities">
   <div><h3>{{Activity.name}}</h3>
   <p>{{Activity.description}}</p>
-    <div *ngFor="let Mod of Activity.modifiers">
-      <p>{{Mod.name}}</p>
+    <div class="circle" (mouseenter)="showPopover()" (mouseleave)="hidePopover()"
+    *ngFor="let Mod of Activity.modifiers">
+      <div class="tooltip">
+        {{Mod.name}}
+        <div class="bottom">
+          <h3>{{Mod.name}}</h3>
+          <p>{{Mod.description}}</p>
+        </div>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 </div>

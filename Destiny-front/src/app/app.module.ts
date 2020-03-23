@@ -12,6 +12,7 @@ import { CrucibleComponent } from './crucible/crucible.component';
 import { RaidComponent } from './raid/raid.component';
 
 
+
 const appRoutes: Routes = [
   {path: '', component: MainboardComponent},
   {path: 'a', component: FlashpointComponent}
