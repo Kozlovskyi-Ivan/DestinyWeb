@@ -1,65 +1,94 @@
-* {
-  box-sizing: border-box;
+.back{
+  background: black;
 }
-.col {
+.col1 {
+
   min-height: 100%;
   width: 33.333%; /* Можно задать любую другую ширину блока */
   background: rgb(41, 42, 134);
   margin: .5rem;
+
 }
-.row {
+.row1 {
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  align-content: center;
-  justify-content: space-between;
+  /*flex-flow: row nowrap;
+  align-items: flex-start;*/
+
+  /*align-content: center;
+  justify-content: space-between;*/
 }
-.circle {
-  background-color: gray;
+.circle1 {
+  background-color: rgb(26, 20, 20);
   height: 50px;
   width: 50px;
   border-radius: 100%;
+  margin: 5px;
+  flex-wrap: wrap;
 }
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row .child{
+  margin: 7px;
+  background: rgb(12, 12, 78);
+  width: 32%;
+  max-width: 32%;
+  flex: auto;
+  flex-wrap: wrap;
+}
+/*
+.row .child .circle{
+  background-color: rgb(26, 20, 20);
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin: 5px;
+}*/
+
+
 .popover {
   position: absolute;
   z-index: 1000;
 }
 .tooltip {
-  display:inline-block;
+  /*display:inline-block;*/
   position:relative;
-  border-bottom:1px dotted #666;
   text-align:left;
+  background-color: rgb(26, 20, 20);
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin: 5px;
+  flex: auto;
+  flex-wrap: wrap;
 }
 
 .tooltip h3 {margin:12px 0;}
 
 .tooltip .bottom {
   min-width:200px;
-  /*max-width:400px;*/
+  max-width:400px;
   top:40px;
   left:50%;
-  transform:translate(-50%, 0);
-  padding:20px;
+  transform:translate(20%, 0);
+  padding:15px;
   color:#666666;
-  background-color:#EEEEEE;
+  background-color:rgb(39, 39, 39);
   font-weight:normal;
-  font-size:13px;
-  border-radius:8px;
-  position:absolute;
+  font-size:15px;
+  border-radius:10px;
+  position: absolute;;
   z-index:99999999;
-  box-sizing:border-box;
-  box-shadow:0 1px 8px rgba(0,0,0,0.5);
   display:none;
 }
 
 .tooltip:hover .bottom {
   display:block;
 }
-
-.tooltip .bottom img {
-  width:400px;
-}
-
+/*
 .tooltip .bottom i {
   position:absolute;
   bottom:100%;
@@ -68,8 +97,9 @@
   width:24px;
   height:12px;
   overflow:hidden;
-}
+}*/
 
+/*
 .tooltip .bottom i::after {
   content:'';
   position:absolute;
@@ -79,4 +109,4 @@
   transform:translate(-50%,50%) rotate(45deg);
   background-color:#EEEEEE;
   box-shadow:0 1px 8px rgba(0,0,0,0.5);
-}
+}*/
