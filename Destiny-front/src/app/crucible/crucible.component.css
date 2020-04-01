@@ -1,16 +1,26 @@
-* {
+.back {
   box-sizing: border-box;
+  background-color: black;
+  background-image: url(/assets/Image/Crucible.jpg);
+  min-height: 500px;
+  background-position: center;
+  background-size: cover;
 }
-.col {
-  height: 100px;
-  width: 33.333%; /* Можно задать любую другую ширину блока */
-  background:red;
-  margin: .5rem;
+img {
+  height: 96px;
+  width: 96px;
 }
-.row {
+.row{
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  align-content: center;
-  /*justify-content: space-between;*/
+  flex-wrap: wrap;
 }
+
+.row .child{
+  margin: 7px;
+  background: rgb(202, 11, 11);
+  width: 10%;
+  max-width: 33%;
+  flex: auto;
+  flex-wrap: wrap;
+}
+

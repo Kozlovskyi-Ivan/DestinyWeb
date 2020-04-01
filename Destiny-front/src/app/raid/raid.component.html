@@ -1,4 +1,4 @@
-<div class="back">
+<div [ngStyle]="{'background-image':'url('+'https://www.bungie.net/'+Milestone.imageUrl+')'}" class="">
 <div class="row">
   <div class="child" *ngFor="let Activity of RaidLeviathan">
     <div><h3>{{Activity.name}}</h3>
@@ -6,6 +6,7 @@
     <div class="row">
       <div *ngFor="let Mod of Activity.modifiers">
         <div class="tooltip">
+          <img src="https://www.bungie.net/{{Mod.icon}}">
           <div class="bottom">
             <h3>{{Mod.name}}</h3>
             <p>{{Mod.description}}</p>
@@ -23,6 +24,7 @@
     <div class="row">
       <div *ngFor="let Mod of Activity.modifiers">
         <div class="tooltip">
+          <img src="https://www.bungie.net/{{Mod.icon}}">
           <div class="bottom">
             <h3>{{Mod.name}}</h3>
             <p>{{Mod.description}}</p>
@@ -40,6 +42,7 @@
     <div class="row">
       <div *ngFor="let Mod of Activity.modifiers">
         <div class="tooltip">
+          <img src="https://www.bungie.net/{{Mod.icon}}">
           <div class="bottom">
             <h3>{{Mod.name}}</h3>
             <p>{{Mod.description}}</p>

@@ -15,8 +15,10 @@ namespace Destiny_back.Modules.EntityTypes
         public uint QuestItemHash { get; set; }
         public List<Activity> Activities { get; set; }
         public uint VendorHash { get; set; }
+        public string ImageUrl { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+
     }
 
     public class Activity
@@ -27,6 +29,7 @@ namespace Destiny_back.Modules.EntityTypes
         public uint ActivityHash { get; set; }
         public string name { get; set; }
         public string description { get; set; }
+        public string icon { get; set; }
         public List<Modifier> Modifiers { get; set; }
     }
 
@@ -38,6 +41,7 @@ namespace Destiny_back.Modules.EntityTypes
         public uint ModifierHash { get; set; }
         public string name { get; set; }
         public string description { get; set; }
+        public string icon { get; set; }
 
     }
 

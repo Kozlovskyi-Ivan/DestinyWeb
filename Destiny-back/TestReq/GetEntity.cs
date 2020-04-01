@@ -96,7 +96,9 @@ namespace TestReq
                     //Console.WriteLine(mod);
                 }
             }
-            var result = httpClient.GetAsync("http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityDefinition/3879860661").Result;
+            //var result = httpClient.GetAsync("http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityDefinition/3879860661").Result;
+            var result = httpClient.GetAsync("http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityDefinition/3780095688").Result;
+
             HttpContent httpContent = result.Content;
             var json = await httpContent.ReadAsStringAsync();
             File.WriteAllText(@"C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\TestReq\Activity.json", json);

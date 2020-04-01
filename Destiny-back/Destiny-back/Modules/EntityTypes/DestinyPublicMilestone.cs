@@ -38,6 +38,7 @@ namespace Destiny_back.Modules.EntityTypes
         public List<uint> modifierHashes { get; set; }
         public List<DestinyActivityModifierDefinition> modifiers = new List<DestinyActivityModifierDefinition>();
         public List<uint> phaseHashes { get; set; }
+        public string pgcrImage { get; set; }
     }
 
     class DestinyPublicMilestoneVendor
@@ -54,5 +55,6 @@ namespace Destiny_back.Modules.EntityTypes
     {
         public string description { get; set; }
         public string name { get; set; }
+        public string icon { get; set; }
     }
 }

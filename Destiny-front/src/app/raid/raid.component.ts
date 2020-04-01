@@ -1,6 +1,8 @@
+import { Milestone } from './../../types/Milestone';
 import { DataserviceService } from './../dataservice.service';
 import { Activities } from './../../types/Activities';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-raid',
@@ -9,12 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RaidComponent implements OnInit {
 
+  Milestone:Milestone;
   RaidLeviathan:Activities[];
   RaidLeviathanEater:Activities[];
   RaidLeviathanSpire:Activities[];
   constructor(private dataservice:DataserviceService) { }
 
   ngOnInit() {
+    this.dataservice.getMilestone('3660836525')
+    .subscribe((data:Milestone)=>this.Milestone=data);
     this.dataservice.getActivities('3660836525')
     .subscribe(data=>this.RaidLeviathan=data);
     this.dataservice.getActivities('2986584050')

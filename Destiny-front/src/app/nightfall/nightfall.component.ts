@@ -1,3 +1,4 @@
+import { Milestone } from './../../types/Milestone';
 import { Activities } from './../../types/Activities';
 import { DataserviceService } from './../dataservice.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,21 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NightfallComponent implements OnInit {
 
-  popoverIsVisible?:Boolean=true;
   Activities?:Activities[]=[];
+  Milestone?:Milestone;
   constructor(private dataservice:DataserviceService ) { }
 
   ngOnInit() {
     this.dataservice.getActivities('1942283261')
     .subscribe((data: Activities[])=>{this.Activities=data});
+    this.dataservice.getMilestone('1942283261')
+    .subscribe((data:Milestone)=>this.Milestone=data);
   }
-  showPopover() {
-    this.popoverIsVisible=false;
-    console.log('asda');
-  }
-  hidePopover() {
-    this.popoverIsVisible=true;
-    console.log('asss')
-  }
-
 }

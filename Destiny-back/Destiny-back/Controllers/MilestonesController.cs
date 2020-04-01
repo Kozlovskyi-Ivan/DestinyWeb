@@ -55,7 +55,7 @@ namespace Destiny_back.Controllers
             var nightfall = from n in context.Activites.Include(x => x.Modifiers)
                             where n.Milestone == milestone
                             orderby n
-                            select new { n.name , n.description,n.Modifiers};
+                            select new { n.name , n.description, n.icon,n.Modifiers};
                             //select n;
             
 

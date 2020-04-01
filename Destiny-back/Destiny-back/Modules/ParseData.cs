@@ -68,16 +68,25 @@ namespace Destiny_back.Modules
                             Activity activityTemp = new Activity { 
                                 ActivityHash=activity.activityHash,
                                 name=activity.displayProperties.name,
-                                description=activity.displayProperties.description};
+                                description=activity.displayProperties.description,
+                                icon=activity.displayProperties.icon,
+                            };
+                            if (activity.pgcrImage!=null & mile.ImageUrl==null)
+                            {
+                                mile.ImageUrl = activity.pgcrImage;
+                            }
                             if (activity.modifiers != null)
                             {
                                 List<Modifier> modifiers = new List<Modifier>();
                                 foreach (var mod in activity.modifiers)
                                 {
-                                    modifiers.Add(new Modifier { 
-                                        name=mod.displayProperties.name,
-                                        description=mod.displayProperties.description,
-                                        ModifierHash=mod.modifierHashes});
+                                    modifiers.Add(new Modifier
+                                    {
+                                        name = mod.displayProperties.name,
+                                        description = mod.displayProperties.description,
+                                        ModifierHash = mod.modifierHashes,
+                                        icon = mod.displayProperties.icon
+                                    });
                                 }
                                 
                                 activityTemp.Modifiers = modifiers;
@@ -129,6 +138,7 @@ namespace Destiny_back.Modules
                             jObject = JObject.Parse(await GetRequestResult($"http://www.bungie.net/Platform/Destiny2/Manifest/DestinyActivityDefinition/{actes.activityHash}/"));
                             DestinyPublicMilestoneChallengeActivity d= jObject["Response"].ToObject<DestinyPublicMilestoneChallengeActivity>();
                             actes.displayProperties = d.displayProperties;
+                            actes.pgcrImage = d.pgcrImage;
                             if (actes.modifierHashes!=null)
                             {
                                 foreach (var modes in actes.modifierHashes)
