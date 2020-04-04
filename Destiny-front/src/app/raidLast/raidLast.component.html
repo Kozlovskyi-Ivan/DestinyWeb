@@ -1,13 +1,13 @@
-<div [ngStyle]="{'background-image':'url('+'https://www.bungie.net/'+Milestone.imageUrl+')' }"class="back">
-<div class="lineTop"></div>
+<div [ngStyle]="{'background-image':'url('+'https://www.bungie.net/'+Milestone.imageUrl+')'}" class="back">
+  <div class="lineTop"></div>
   <img src='https://www.bungie.net/{{Activities[0].icon}}' class="icon">
-  <div class="title">{{Activities[0].description}}</div>
+  <div class="title">{{Milestone.name}}</div>
   <div class="row">
     <div class="child" *ngFor="let Activity of Activities">
       <div><h3>{{Activity.name}}</h3>
       <p>{{Activity.description}}</p>
       <div class="row">
-        <div  *ngFor="let Mod of Activity.modifiers">
+        <div *ngFor="let Mod of Activity.modifiers">
           <div class="tooltip">
             <img src="https://www.bungie.net/{{Mod.icon}}">
             <div class="bottom">
@@ -17,6 +17,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>

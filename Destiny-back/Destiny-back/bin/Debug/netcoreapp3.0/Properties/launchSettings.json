@@ -9,11 +9,20 @@
     }
   },
   "profiles": {
+
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "http://localhost:4200",
       "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Test": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/Milestones",
+      "environmentVariables": { 
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

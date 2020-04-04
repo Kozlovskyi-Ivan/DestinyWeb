@@ -1,5 +1,13 @@
 <div class="back">
 <div class="row">
+  <div class="child" *ngFor="let Activity of ActivitiesMain">
+    <div><h3>{{Activity.name}}</h3>
+      <img src="https://www.bungie.net/{{Activity.icon}}">
+    <!--<p>{{Activity.description}}</p>-->
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="child" *ngFor="let Activity of Activities">
     <div><h3>{{Activity.name}}</h3>
       <img src="https://www.bungie.net/{{Activity.icon}}">

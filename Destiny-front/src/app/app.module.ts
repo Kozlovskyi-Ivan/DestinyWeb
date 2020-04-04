@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NightfallComponent } from './nightfall/nightfall.component';
 import { CrucibleComponent } from './crucible/crucible.component';
 import { RaidComponent } from './raid/raid.component';
+import { RaidLastComponent } from './raidLast/raidLast.component';
+import { RaidPastComponent } from './raidPast/raidPast.component';
+import { RaidSorrowComponent } from './raidSorrow/raidSorrow.component';
+import { RaidSalvationComponent } from './raidSalvation/raidSalvation.component';
 
 
 
@@ -25,7 +29,11 @@ const appRoutes: Routes = [
       FlashpointComponent,
       NightfallComponent,
       CrucibleComponent,
-      RaidComponent
+      RaidComponent,
+      RaidLastComponent,
+      RaidPastComponent,
+      RaidSorrowComponent,
+      RaidSalvationComponent
    ],
    imports: [
       BrowserModule,
