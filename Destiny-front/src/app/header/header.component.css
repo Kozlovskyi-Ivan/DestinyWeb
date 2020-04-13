@@ -1,0 +1,12 @@
+.backheader {
+  box-sizing: border-box;
+  background-image: url(/assets/Image/header.jpg);
+  min-height: 200px;
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+}
+.title{
+  font-size: 36px;
+  padding-top: 90px;
+}
