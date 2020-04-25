@@ -18,7 +18,9 @@ namespace Destiny_back.Modules
         public ParseData()
         {
             httpClient = new HttpClient();
-            string key = File.ReadAllText(@"C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\TestReq\Key.txt");
+            //string key = File.ReadAllText(@"C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\TestReq\Key.txt");
+            string key = File.ReadAllText(@"\\Key.txt");
+
             httpClient.DefaultRequestHeaders.Add("X-API-Key", key);
         }
         public void Start()
@@ -28,7 +30,7 @@ namespace Destiny_back.Modules
                 if (!db.Milestones.Any() || db.Milestones.First((x)=>x.name=="Leviathan Raid").EndDate<DateTime.UtcNow)
                 {
                     Console.WriteLine();
-                    //if (db.Milestones==null)
+                    if (db.Database.CanConnect())
                     {
                         db.RemoveRange(db.Milestones);
                         db.SaveChanges();

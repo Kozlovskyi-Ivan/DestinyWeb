@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  destiny-back:
+    image: ${DOCKER_REGISTRY-}destinyback
+    build:
+      context: .
+      dockerfile: Destiny-back/Dockerfile

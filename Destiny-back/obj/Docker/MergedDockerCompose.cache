@@ -1,0 +1,11 @@
+services:
+  destiny-back:
+    build:
+      context: C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back
+      dockerfile: Destiny-back/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: destinyback
+    ports:
+    - target: 80
+version: '3.4'

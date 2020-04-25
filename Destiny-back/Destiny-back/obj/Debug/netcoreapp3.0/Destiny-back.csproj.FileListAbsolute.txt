@@ -126,5 +126,7 @@ C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\D
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
-C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.csprojAssemblyReference.cache
+C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.genruntimeconfig.cache
+C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.csproj.CoreCompileInputs.cache
+C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.MvcApplicationPartsAssemblyInfo.cache
