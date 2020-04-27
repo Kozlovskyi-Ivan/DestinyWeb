@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Destiny_back.Migrations
 {
-    public partial class dest : Migration
+    public partial class servermigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,6 +16,7 @@ namespace Destiny_back.Migrations
                     description = table.Column<string>(nullable: true),
                     QuestItemHash = table.Column<long>(nullable: false),
                     VendorHash = table.Column<long>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false)
                 },
@@ -33,7 +34,8 @@ namespace Destiny_back.Migrations
                     MilestoneHash = table.Column<long>(nullable: true),
                     ActivityHash = table.Column<long>(nullable: false),
                     name = table.Column<string>(nullable: true),
-                    description = table.Column<string>(nullable: true)
+                    description = table.Column<string>(nullable: true),
+                    icon = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,7 +57,8 @@ namespace Destiny_back.Migrations
                     ActivityId = table.Column<int>(nullable: true),
                     ModifierHash = table.Column<long>(nullable: false),
                     name = table.Column<string>(nullable: true),
-                    description = table.Column<string>(nullable: true)
+                    description = table.Column<string>(nullable: true),
+                    icon = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

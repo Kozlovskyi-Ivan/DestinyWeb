@@ -1,0 +1,1 @@
+﻿Server=localhost,777;Database=Destiny;User Id=SA;Password=MyPassword001;

@@ -3,9 +3,23 @@ services:
     build:
       context: C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back
       dockerfile: Destiny-back/Dockerfile
+    depends_on:
+    - mssql
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     image: destinyback
     ports:
-    - target: 80
+    - published: 4000
+      target: 80
+    - published: 778
+      target: 1444
+  mssql:
+    container_name: destiny-back-sql
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: MyPassword001
+    image: mcr.microsoft.com/mssql/server
+    ports:
+    - published: 1433
+      target: 1433
 version: '3.4'

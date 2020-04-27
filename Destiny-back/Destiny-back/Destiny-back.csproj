@@ -8,10 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200309181619_dest.cs" />
-    <Compile Remove="Migrations\20200309181619_dest.Designer.cs" />
-    <Compile Remove="Migrations\20200312193955_dest-2.cs" />
-    <Compile Remove="Migrations\20200312193955_dest-2.Designer.cs" />
+    <Compile Remove="Migrations\20200425192934_servermigration.cs" />
+    <Compile Remove="Migrations\20200425192934_servermigration.Designer.cs" />
+    <Compile Remove="Migrations\20200425193754_servermigration.cs" />
+    <Compile Remove="Migrations\20200425193754_servermigration.Designer.cs" />
+    <Compile Remove="Migrations\20200425194103_servermigration.cs" />
+    <Compile Remove="Migrations\20200425194103_servermigration.Designer.cs" />
+    <Compile Remove="Migrations\20200425194610_servermigration.cs" />
+    <Compile Remove="Migrations\20200425194610_servermigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,7 +22,10 @@ namespace Destiny_back.Modules
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Destinytest01;Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Destinytest01;Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=Destiny;User Id=SA;Password=MyPassword001;");
+            optionsBuilder.UseSqlServer(@"Server=destiny-back-sql,1433;Database=Destiny;User Id=SA;Password=MyPassword001;");
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

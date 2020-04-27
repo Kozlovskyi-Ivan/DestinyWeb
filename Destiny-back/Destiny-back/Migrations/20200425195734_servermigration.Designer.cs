@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Destiny_back.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20200312194630_dest")]
-    partial class dest
+    [Migration("20200425195734_servermigration")]
+    partial class servermigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,9 @@ namespace Destiny_back.Migrations
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("icon")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
@@ -55,6 +58,9 @@ namespace Destiny_back.Migrations
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("QuestItemHash")
                         .HasColumnType("bigint");
@@ -90,6 +96,9 @@ namespace Destiny_back.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("icon")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("name")
