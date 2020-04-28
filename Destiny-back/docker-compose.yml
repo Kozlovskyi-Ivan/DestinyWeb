@@ -11,6 +11,7 @@ services:
       - "1433:1433"
   destiny-back:
     image: ${DOCKER_REGISTRY-}destinyback
+    container_name: destiny-back
     build:
       context: .
       dockerfile: Destiny-back/Dockerfile
@@ -18,3 +19,19 @@ services:
      - mssql
     ports:
       - "778:1444"
+  destiny-front:
+#    image: ${DOCKER_REGISTRY-}
+    container_name: destiny-front
+    build:
+      context: ../Destiny-front
+      dockerfile: Dockerfile
+    container_name: destiny-front
+    ports:
+      - "1300:80"
+#    image: ${DOCKER_REGISTRY-}destiny-front
+#    build:
+#      context: ../Destiny-front
+#      dockerfile: Dockerfile
+#    container_name: destiny-front
+#    ports:
+#      - "4200:4200"

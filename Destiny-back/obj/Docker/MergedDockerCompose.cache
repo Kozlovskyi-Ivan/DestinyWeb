@@ -3,6 +3,7 @@ services:
     build:
       context: C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back
       dockerfile: Destiny-back/Dockerfile
+    container_name: destiny-back
     depends_on:
     - mssql
     environment:
@@ -13,6 +14,14 @@ services:
       target: 80
     - published: 778
       target: 1444
+  destiny-front:
+    build:
+      context: C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-front
+      dockerfile: Dockerfile
+    container_name: destiny-front
+    ports:
+    - published: 1300
+      target: 80
   mssql:
     container_name: destiny-back-sql
     environment:

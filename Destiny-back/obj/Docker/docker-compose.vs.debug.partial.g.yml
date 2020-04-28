@@ -3,7 +3,6 @@ version: '3.4'
 services:
   destiny-back:
     image: destinyback:dev
-    container_name: Destiny-back
     build:
       target: base
       labels:

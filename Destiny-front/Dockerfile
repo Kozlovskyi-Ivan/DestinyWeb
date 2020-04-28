@@ -1,6 +1,7 @@
 ### Build ###
 FROM node:12.7-alpine AS build
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/
+ #ENV PATH app/node_modules
 COPY package.json ./
 RUN npm install
 COPY . .

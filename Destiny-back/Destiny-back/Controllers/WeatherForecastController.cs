@@ -28,7 +28,7 @@ namespace Destiny_back.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            start();
+            //start();
             ParseData parseData = new ParseData();
             parseData.Start();
             var rng = new Random();

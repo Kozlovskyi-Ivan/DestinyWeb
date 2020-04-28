@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataserviceService {
 
-  private url='http://localhost:52881/api';
+  // private url='http://localhost:52881/api';
+  private url='http://destiny-back:1444/api';
 constructor(private http: HttpClient) { }
 
 getMilestone(name: string){
