@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Destiny_back.Migrations
 {
-    public partial class servermigration : Migration
+    public partial class newdestiny : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,6 +11,8 @@ namespace Destiny_back.Migrations
                 name: "Milestones",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Hash = table.Column<long>(nullable: false),
                     name = table.Column<string>(nullable: true),
                     description = table.Column<string>(nullable: true),
@@ -22,7 +24,7 @@ namespace Destiny_back.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Milestones", x => x.Hash);
+                    table.PrimaryKey("PK_Milestones", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -31,7 +33,7 @@ namespace Destiny_back.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MilestoneHash = table.Column<long>(nullable: true),
+                    MilestoneId = table.Column<int>(nullable: true),
                     ActivityHash = table.Column<long>(nullable: false),
                     name = table.Column<string>(nullable: true),
                     description = table.Column<string>(nullable: true),
@@ -41,10 +43,10 @@ namespace Destiny_back.Migrations
                 {
                     table.PrimaryKey("PK_Activites", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Activites_Milestones_MilestoneHash",
-                        column: x => x.MilestoneHash,
+                        name: "FK_Activites_Milestones_MilestoneId",
+                        column: x => x.MilestoneId,
                         principalTable: "Milestones",
-                        principalColumn: "Hash",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -72,9 +74,9 @@ namespace Destiny_back.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Activites_MilestoneHash",
+                name: "IX_Activites_MilestoneId",
                 table: "Activites",
-                column: "MilestoneHash");
+                column: "MilestoneId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Modifiers_ActivityId",

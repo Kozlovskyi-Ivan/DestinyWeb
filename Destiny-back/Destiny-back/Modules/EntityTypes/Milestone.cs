@@ -9,6 +9,7 @@ namespace Destiny_back.Modules.EntityTypes
     public class Milestone
     {
         [Key]
+        public int Id { get; set; }
         public uint Hash { get; set; }
         public string name { get; set; }
         public string description { get; set; }

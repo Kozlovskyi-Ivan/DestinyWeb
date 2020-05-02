@@ -27,7 +27,7 @@ services:
       dockerfile: Dockerfile
     container_name: destiny-front
     ports:
-      - "1300:80"
+      - "1300:100"
 #    image: ${DOCKER_REGISTRY-}destiny-front
 #    build:
 #      context: ../Destiny-front

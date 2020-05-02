@@ -29,9 +29,9 @@ namespace Destiny_back
         public void ConfigureServices(IServiceCollection services)
         {
             //string con = @"Server=(localdb)\mssqllocaldb;Database=Destinytest01;Trusted_Connection=True;";
-            //string con = File.ReadAllText(@"\\DefaultConnection.txt");
-            string con = (@"Server=localhost,1433;Database=Destiny;User Id=SA;Password=MyPassword001;");
-
+            //string con = File.ReadAllText(@"\\DefaultConnection.txt");@"Server=destiny-back-sql,1433;Database=Destiny;User Id=SA;Password=MyPassword001;"
+            //string con = (@"Server=localhost,1433;Database=Destiny;User Id=SA;Password=MyPassword001;");
+            string con = (@"Server=destiny-back-sql,1433;Database=Destiny;User Id=SA;Password=MyPassword001;");
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(con));
             services.AddMvc(option => option.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
@@ -47,7 +47,12 @@ namespace Destiny_back
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(options => options.WithOrigins("http://localhost:1433").AllowAnyMethod().AllowAnyHeader());
+            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetService<ApplicationContext>().Database.Migrate();
+            }
+            //app.UseCors(options => options.WithOrigins("http://localhost:1433").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("http://destiny-front:100").AllowAnyMethod().AllowAnyHeader());
 
             app.UseRouting();
 

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Destiny_back.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20200425195734_servermigration")]
-    partial class servermigration
+    [Migration("20200502102846_newdestiny")]
+    partial class newdestiny
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,8 +31,8 @@ namespace Destiny_back.Migrations
                     b.Property<long>("ActivityHash")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("MilestoneHash")
-                        .HasColumnType("bigint");
+                    b.Property<int?>("MilestoneId")
+                        .HasColumnType("int");
 
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
@@ -45,19 +45,23 @@ namespace Destiny_back.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MilestoneHash");
+                    b.HasIndex("MilestoneId");
 
                     b.ToTable("Activites");
                 });
 
             modelBuilder.Entity("Destiny_back.Modules.EntityTypes.Milestone", b =>
                 {
-                    b.Property<long>("Hash")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<long>("Hash")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
@@ -77,7 +81,7 @@ namespace Destiny_back.Migrations
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Hash");
+                    b.HasKey("Id");
 
                     b.ToTable("Milestones");
                 });
@@ -115,7 +119,7 @@ namespace Destiny_back.Migrations
                 {
                     b.HasOne("Destiny_back.Modules.EntityTypes.Milestone", "Milestone")
                         .WithMany("Activities")
-                        .HasForeignKey("MilestoneHash")
+                        .HasForeignKey("MilestoneId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

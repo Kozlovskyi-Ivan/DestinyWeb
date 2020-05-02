@@ -21,7 +21,7 @@ services:
     container_name: destiny-front
     ports:
     - published: 1300
-      target: 80
+      target: 100
   mssql:
     container_name: destiny-back-sql
     environment:
