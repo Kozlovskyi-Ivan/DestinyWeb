@@ -51,8 +51,14 @@ namespace Destiny_back
             {
                 scope.ServiceProvider.GetService<ApplicationContext>().Database.Migrate();
             }
-            //app.UseCors(options => options.WithOrigins("http://localhost:1433").AllowAnyMethod().AllowAnyHeader());
-            app.UseCors(options => options.WithOrigins("http://destiny-front:100").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("http://localhost:1300").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("http://localhost:8000").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("http://destiny-front:8000").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("http://destiny-front:1300").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("destiny-front:8000").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("destiny-front:1300").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("http://destiny-front").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("destiny-front").AllowAnyMethod().AllowAnyHeader());
 
             app.UseRouting();
 

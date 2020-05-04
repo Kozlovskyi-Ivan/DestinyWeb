@@ -19,7 +19,8 @@ namespace Destiny_back.Modules
         {
             httpClient = new HttpClient();
             //string key = File.ReadAllText(@"C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\TestReq\Key.txt");
-            string key = File.ReadAllText(@"\\Key.txt");
+            string key = File.ReadAllText(@"./Key.txt");
+            //string key = File.ReadAllText(@"/Key.txt");
 
             httpClient.DefaultRequestHeaders.Add("X-API-Key", key);
         }

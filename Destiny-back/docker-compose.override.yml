@@ -4,5 +4,6 @@ services:
   destiny-back:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "4000:80"
+#      - ASPNETCORE_ENVIRONMENT=Production
+#    ports:
+#      - "4000:4000"

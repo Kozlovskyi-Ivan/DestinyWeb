@@ -67,6 +67,26 @@ namespace Destiny_back.Controllers
             return Ok(nightfall);
         }
 
+        // GET: api/Milestones/5 test
+        [HttpGet("test/{id}")]
+        public async Task<IActionResult> GetTest([FromRoute] uint id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            //select n;
+
+
+            Milestone milestone = new Milestone { name = "asda", description="id"};
+            if (milestone == null)
+            {
+                return NotFound();
+            }
+            return Ok(milestone);
+        }
+
         // POST: api/Milestones
         [HttpPost]
         public void Post([FromBody] string value)

@@ -4,30 +4,35 @@ services:
   mssql:
     image: "mcr.microsoft.com/mssql/server"
     container_name: destiny-back-sql
+    restart: always 
     environment:
         SA_PASSWORD: "MyPassword001"
         ACCEPT_EULA: "Y"
     ports:
       - "1433:1433"
   destiny-back:
-    image: ${DOCKER_REGISTRY-}destinyback
+#    image: ${DOCKER_REGISTRY-}destinyback
     container_name: destiny-back
+    restart: always 
     build:
       context: .
       dockerfile: Destiny-back/Dockerfile
     depends_on:
      - mssql
     ports:
-      - "778:1444"
+      - "4000:80"
+      - "1444"
   destiny-front:
 #    image: ${DOCKER_REGISTRY-}
     container_name: destiny-front
+    restart: always 
     build:
       context: ../Destiny-front
       dockerfile: Dockerfile
-    container_name: destiny-front
+#    container_name: destiny-front
     ports:
-      - "1300:100"
+      - "1300:80"
+
 #    image: ${DOCKER_REGISTRY-}destiny-front
 #    build:
 #      context: ../Destiny-front
