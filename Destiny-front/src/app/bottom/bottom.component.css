@@ -1,0 +1,26 @@
+.backheader {
+  box-sizing: border-box;
+  background-color: black;
+  min-height: 50px;
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+  margin-bottom: -8px;
+}
+.title{
+  margin:0px;
+  margin-left: 40%;
+}
+.link{
+  text-decoration: none;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  padding: 10px;
+}
+.linkImg{
+  width:20px;
+  height:20px;
+  margin-bottom: -3px;
+}

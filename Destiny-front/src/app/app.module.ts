@@ -15,6 +15,7 @@ import { RaidPastComponent } from './raidPast/raidPast.component';
 import { RaidSorrowComponent } from './raidSorrow/raidSorrow.component';
 import { RaidSalvationComponent } from './raidSalvation/raidSalvation.component';
 import { HeaderComponent } from './header/header.component';
+import { BottomComponent } from './bottom/bottom.component';
 
 
 
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
       RaidPastComponent,
       RaidSorrowComponent,
       RaidSalvationComponent,
-      HeaderComponent
+      HeaderComponent,
+      BottomComponent
    ],
    imports: [
       BrowserModule,
