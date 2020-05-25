@@ -1,1 +1,1 @@
-﻿Server=localhost,777;Database=Destiny;User Id=SA;Password=MyPassword001;
+﻿Server=eu-cdbr-west-03.cleardb.net;Database=heroku_fd5d60b4df09aff;Uid=b39cd889b41df9;Pwd=b02b4119;

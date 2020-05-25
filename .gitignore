@@ -4,3 +4,8 @@ Destiny-back/Destiny-back/key.txt
 Destiny-back/TestReq/bin/
 Destiny-back/TestReq/obj/
 Destiny-back/TestReq/Jsons
+Destiny-back.Test
+Destiny-back/DefaultConnection.txt
+
+Destiny-back/bin/Debug/DefaultConnection.txt
+*.txt

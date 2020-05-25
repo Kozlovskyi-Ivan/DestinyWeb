@@ -13,6 +13,7 @@ img {
   height: flex;
   min-height: 600px;
   background-position: center;
+  background-size: cover;
   position: relative;
   margin: auto;
   /* padding: -50px; */

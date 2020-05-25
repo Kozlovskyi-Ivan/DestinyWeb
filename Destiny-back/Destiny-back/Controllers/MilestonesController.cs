@@ -43,7 +43,31 @@ namespace Destiny_back.Controllers
             }
             return Ok(milestone);
         }
-        // GET: api/Milestones/5
+        // GET: api/Milestones/Activity/id
+        [HttpGet("Milestones/{id}")]
+        public async Task<IActionResult> GetActivity([FromRoute] uint id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var milestone = context.Milestones.FirstOrDefault(x => x.Hash == id);
+            var Activity = from n in context.Activites.Include(x => x.Modifiers)
+                            where n.Milestone == milestone
+                            orderby n
+                            select new { n.name , n.description, n.icon,n.Modifiers};
+                            //select n;
+            
+
+            //Milestone milestone = new Milestone { name = "asda", Activities = context.Milestones.FirstOrDefault(x => x.name == name).Activities };
+            if (Activity == null)
+            {
+                return NotFound();
+            }
+            return Ok(Activity);
+        }
+
+        // GET: api/Milestones/Activity/id
         [HttpGet("Nightfall/{id}")]
         public async Task<IActionResult> GetNightfall([FromRoute] uint id)
         {
@@ -54,18 +78,15 @@ namespace Destiny_back.Controllers
             var milestone = context.Milestones.FirstOrDefault(x => x.Hash == id);
             var nightfall = from n in context.Activites.Include(x => x.Modifiers)
                             where n.Milestone == milestone
-                            orderby n
-                            select new { n.name , n.description, n.icon,n.Modifiers};
-                            //select n;
-            
-
-            //Milestone milestone = new Milestone { name = "asda", Activities = context.Milestones.FirstOrDefault(x => x.name == name).Activities };
+                            orderby n.Modifiers.Count
+                            select new { n.name, n.description, n.icon, n.Modifiers };
             if (nightfall == null)
             {
                 return NotFound();
             }
             return Ok(nightfall);
         }
+
 
         // GET: api/Milestones/5 test
         [HttpGet("test/{id}")]

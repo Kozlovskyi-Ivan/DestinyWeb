@@ -28,11 +28,9 @@ namespace Destiny_back
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //string con = @"Server=(localdb)\mssqllocaldb;Database=Destinytest01;Trusted_Connection=True;";
-            //string con = File.ReadAllText(@"\\DefaultConnection.txt");@"Server=destiny-back-sql,1433;Database=Destiny;User Id=SA;Password=MyPassword001;"
-            //string con = (@"Server=localhost,1433;Database=Destiny;User Id=SA;Password=MyPassword001;");
-            string con = (@"Server=destiny-back-sql,1433;Database=Destiny;User Id=SA;Password=MyPassword001;");
-            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(con));
+            services.AddDbContext<ApplicationContext>(options => options.UseMySQL(File.ReadAllText(@"./DefaultConnection.txt")));
+
+
             services.AddMvc(option => option.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
@@ -46,19 +44,17 @@ namespace Destiny_back
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //heroku
+            //using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    scope.ServiceProvider.GetService<ApplicationContext>().Database.Migrate();
+            //}
+            //start download 
+            using (var data = new ParseData())
             {
-                scope.ServiceProvider.GetService<ApplicationContext>().Database.Migrate();
+                data.Start();
             }
-            app.UseCors(options => options.WithOrigins("http://localhost:1300").AllowAnyMethod().AllowAnyHeader());
-            app.UseCors(options => options.WithOrigins("http://localhost:8000").AllowAnyMethod().AllowAnyHeader());
-            app.UseCors(options => options.WithOrigins("http://destiny-front:8000").AllowAnyMethod().AllowAnyHeader());
-            app.UseCors(options => options.WithOrigins("http://destiny-front:1300").AllowAnyMethod().AllowAnyHeader());
-            app.UseCors(options => options.WithOrigins("destiny-front:8000").AllowAnyMethod().AllowAnyHeader());
-            app.UseCors(options => options.WithOrigins("destiny-front:1300").AllowAnyMethod().AllowAnyHeader());
-            app.UseCors(options => options.WithOrigins("http://destiny-front").AllowAnyMethod().AllowAnyHeader());
-            app.UseCors(options => options.WithOrigins("destiny-front").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseRouting();
 

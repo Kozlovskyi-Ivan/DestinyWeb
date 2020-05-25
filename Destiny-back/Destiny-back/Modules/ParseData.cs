@@ -10,10 +10,11 @@ using Newtonsoft.Json.Linq;
 
 namespace Destiny_back.Modules
 {
-    public class ParseData
+    public class ParseData: IDisposable
     {
         HttpClient httpClient;
         List<DestinyPublicMilestone> destinyPublics;
+        bool disposed;
         //ApplicationContext context;
         public ParseData()
         {
@@ -115,9 +116,7 @@ namespace Destiny_back.Modules
                     }
                     Db.Milestones.Add(mile);
                     Db.SaveChanges();
-                    Console.WriteLine();
                 }
-                Console.WriteLine();
             }
         }
         public async void GetEntity()
@@ -186,6 +185,25 @@ namespace Destiny_back.Modules
             HttpContent httpContent = Actresult.Content;
             string json = await httpContent.ReadAsStringAsync();
             return json;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    httpClient.Dispose();
+                    destinyPublics = null;
+                }
+            }
+            //dispose unmanaged resources
+            disposed = true;
         }
     }
 }

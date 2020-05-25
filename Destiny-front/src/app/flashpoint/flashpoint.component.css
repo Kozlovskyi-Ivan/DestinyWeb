@@ -9,7 +9,7 @@ h1 {
   font-family: sans-serif;
   font-size: 72px;
   font-weight: 700;
-  line-height: 0px;
+  line-height: -5px;
 }
 p{
   font-family: sans-serif;

@@ -20,17 +20,21 @@ namespace Destiny_back.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController()
         {
-            _logger = logger;
         }
+
+        //public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
             //start();
-            ParseData parseData = new ParseData();
-            parseData.Start();
+            //ParseData parseData = new ParseData();
+            //parseData.Start();
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

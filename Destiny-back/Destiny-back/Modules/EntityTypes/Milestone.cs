@@ -10,12 +10,12 @@ namespace Destiny_back.Modules.EntityTypes
     {
         [Key]
         public int Id { get; set; }
-        public uint Hash { get; set; }
+        public Int64 Hash { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public uint QuestItemHash { get; set; }
+        public Int64 QuestItemHash { get; set; }
         public List<Activity> Activities { get; set; }
-        public uint VendorHash { get; set; }
+        public Int64 VendorHash { get; set; }
         public string ImageUrl { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -27,7 +27,7 @@ namespace Destiny_back.Modules.EntityTypes
         public Milestone Milestone{ get; set; }
         [Key]
         public int Id { get; set; }
-        public uint ActivityHash { get; set; }
+        public Int64 ActivityHash { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string icon { get; set; }
@@ -39,7 +39,7 @@ namespace Destiny_back.Modules.EntityTypes
         public Activity Activity { get; set; }
         [Key]
         public int Id { get; set; }
-        public uint ModifierHash { get; set; }
+        public Int64 ModifierHash { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string icon { get; set; }

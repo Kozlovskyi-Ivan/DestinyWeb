@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Destiny_back.Modules.EntityTypes;
+using MySql.Data.EntityFrameworkCore;
+using System.IO;
 
 namespace Destiny_back.Modules
 {
@@ -22,10 +24,7 @@ namespace Destiny_back.Modules
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Destinytest01;Trusted_Connection=True;");
-            //optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=Destiny;User Id=SA;Password=MyPassword001;");
-            optionsBuilder.UseSqlServer(@"Server=destiny-back-sql,1433;Database=Destiny;User Id=SA;Password=MyPassword001;");
-
+            optionsBuilder.UseMySQL(File.ReadAllText(@"./DefaultConnection.txt"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
