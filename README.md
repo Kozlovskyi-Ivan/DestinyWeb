@@ -8,7 +8,7 @@ Back-end has standard controllers for processing requests. It uses Destiny API t
 [Example on heroku](https://destiny-reset.herokuapp.com/)
 Warning, create a defaultconnection.txt with connection string for a database and key.txt for bungieAPI key.
 
-![Example 1](/1.jpg)
-![Example 2](/2.jpg)
+![Example 1](/1.JPG)
+![Example 2](/2.JPG)
 ---
 ## docker and friends 
