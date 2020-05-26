@@ -80,6 +80,7 @@ namespace Destiny_back.Controllers
                             where n.Milestone == milestone
                             orderby n.Modifiers.Count
                             select new { n.name, n.description, n.icon, n.Modifiers };
+            //nightfall.Distinct();
             if (nightfall == null)
             {
                 return NotFound();
