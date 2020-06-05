@@ -14,16 +14,26 @@ namespace Destiny_back.Controllers
     [ApiController]
     public class MilestonesController : ControllerBase
     {
-        private ApplicationContext context;
-        public MilestonesController(ApplicationContext context)
+        GetFromDbControllerMilestone GetFromDb;
+        public MilestonesController()
         {
-            this.context = context;
+            GetFromDb = new GetFromDbControllerMilestone(new ApplicationContext());
         }
 
         [HttpGet]
-        public IEnumerable<Milestone> Get()
+        public async Task<IActionResult> Get()
         {
-             return context.Milestones.Include(x=>x.Activities);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var milestone = GetFromDb.GetMilestoneAll();
+
+            if (milestone == null)
+            {
+                return NotFound();
+            }
+            return Ok(milestone);
         }
 
         // GET: api/Milestones/5
@@ -34,9 +44,8 @@ namespace Destiny_back.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var milestone = context.Milestones.FirstOrDefault(x=>x.Hash==id);
+            var milestone = GetFromDb.GetMilestone(id);
 
-            //Milestone milestone = new Milestone { name = "asda", Activities = context.Milestones.FirstOrDefault(x => x.name == name).Activities };
             if (milestone==null)
             {
                 return NotFound();
@@ -51,20 +60,13 @@ namespace Destiny_back.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var milestone = context.Milestones.FirstOrDefault(x => x.Hash == id);
-            var Activity = from n in context.Activites.Include(x => x.Modifiers)
-                            where n.Milestone == milestone
-                            orderby n
-                            select new { n.name , n.description, n.icon,n.Modifiers};
-                            //select n;
-            
+            var activity = GetFromDb.GetActivity(id);
 
-            //Milestone milestone = new Milestone { name = "asda", Activities = context.Milestones.FirstOrDefault(x => x.name == name).Activities };
-            if (Activity == null)
+            if (activity == null)
             {
                 return NotFound();
             }
-            return Ok(Activity);
+            return Ok(activity);
         }
 
         // GET: api/Milestones/Activity/id
@@ -75,12 +77,7 @@ namespace Destiny_back.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var milestone = context.Milestones.FirstOrDefault(x => x.Hash == id);
-            var nightfall = from n in context.Activites.Include(x => x.Modifiers)
-                            where n.Milestone == milestone
-                            orderby n.Modifiers.Count
-                            select new { n.name, n.description, n.icon, n.Modifiers };
-            //nightfall.Distinct();
+            var nightfall = GetFromDb.GetNightfall(id);
             if (nightfall == null)
             {
                 return NotFound();
@@ -97,10 +94,6 @@ namespace Destiny_back.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            //select n;
-
-
             Milestone milestone = new Milestone { name = "asda", description="id"};
             if (milestone == null)
             {

@@ -12,3 +12,4 @@ Warning, create a defaultconnection.txt with connection string for a database an
 ![Example 2](/2.JPG)
 ---
 ## docker and friends 
+project support docker-compose 
