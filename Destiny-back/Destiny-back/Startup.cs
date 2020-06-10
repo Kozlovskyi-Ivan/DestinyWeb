@@ -13,6 +13,7 @@ using Destiny_back.Modules;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.IO;
+using Destiny_back.Services;
 
 namespace Destiny_back
 {
@@ -35,6 +36,13 @@ namespace Destiny_back
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             services.AddControllers();
+
+            services.AddCronJob<CronReset>(c =>
+            {
+                c.TimeZoneInfo = TimeZoneInfo.Utc;
+                c.CronExpression = @"1 17 * * 2";
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

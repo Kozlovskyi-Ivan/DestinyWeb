@@ -137,5 +137,6 @@ C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\D
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Renci.SshNet.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\SshNet.Security.Cryptography.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\System.Xml.XPath.XmlDocument.dll
+C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\bin\Debug\netcoreapp3.0\Cronos.dll
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.csproj.CoreCompileInputs.cache
 C:\Users\Ivan\Documents\DestinyWebApp\DestinyWeb\Destiny-back\Destiny-back\obj\Debug\netcoreapp3.0\Destiny-back.MvcApplicationPartsAssemblyInfo.cache
