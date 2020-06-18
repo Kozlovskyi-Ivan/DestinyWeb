@@ -18,7 +18,7 @@ export class RaidPastComponent implements OnInit {
     this.Dataservice.getMilestone('1342567285')
     .subscribe((data:Milestone)=>this.Milestone=data);
     this.Dataservice.getActivities('1342567285')
-    .subscribe((data)=>this.Activities=data);
+    .subscribe((data:Activities[])=>this.Activities=data);
   }
 
 }

@@ -21,11 +21,11 @@ export class RaidComponent implements OnInit {
     this.dataservice.getMilestone('3660836525')
     .subscribe((data:Milestone)=>this.Milestone=data);
     this.dataservice.getActivities('3660836525')
-    .subscribe(data=>this.RaidLeviathan=data);
+    .subscribe((data:Activities[])=>this.RaidLeviathan=data);
     this.dataservice.getActivities('2986584050')
-    .subscribe(data=>this.RaidLeviathanEater=data);
+    .subscribe((data:Activities[])=>this.RaidLeviathanEater=data);
     this.dataservice.getActivities('2683538554')
-    .subscribe(data=>this.RaidLeviathanSpire=data);
+    .subscribe((data:Activities[])=>this.RaidLeviathanSpire=data);
   }
 
 }

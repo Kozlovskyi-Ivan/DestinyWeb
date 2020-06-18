@@ -16,9 +16,9 @@ export class RaidSalvationComponent implements OnInit {
   Activities?:Activities[];
   ngOnInit() {
     this.dataservice.getMilestone('2712317338')
-    .subscribe(data=>this.Milestone=data);
+    .subscribe((data:Milestone)=>this.Milestone=data);
     this.dataservice.getActivities('2712317338')
-    .subscribe(data=>this.Activities=data);
+    .subscribe((data:Activities[])=>this.Activities=data);
   }
 
 }

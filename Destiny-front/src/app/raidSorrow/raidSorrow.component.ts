@@ -18,7 +18,7 @@ export class RaidSorrowComponent implements OnInit {
     this.Dataservice.getMilestone('2590427074')
     .subscribe((data:Milestone)=>this.Milestone=data);
     this.Dataservice.getActivities('2590427074')
-    .subscribe((data)=>this.Activities=data);
+    .subscribe((data: Activities[])=>this.Activities=data);
   }
 
 }

@@ -15,9 +15,9 @@ export class CrucibleComponent implements OnInit {
 
   ngOnInit() {
     this.dataservice.getActivities('4191379729')
-    .subscribe(data=>this.Activities=data);
+    .subscribe((data:Activities[])=>this.Activities=data);
     this.dataservice.getActivities('2434762343')
-    .subscribe(data=>this.ActivitiesMain=data);
+    .subscribe((data:Activities[])=>this.ActivitiesMain=data);
   }
 
 }
