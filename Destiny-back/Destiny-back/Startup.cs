@@ -63,10 +63,10 @@ namespace Destiny_back
             //    scope.ServiceProvider.GetService<ApplicationContext>().Database.Migrate();
             //}
             //start download 
-            //using (var data = new ParseData())
-            //{
-            //    data.Start();
-            //}
+            using (var data = new ParseData())
+            {
+                data.Start();
+            }
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseRouting();

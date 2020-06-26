@@ -21,4 +21,15 @@ export class NightfallComponent implements OnInit {
     this.dataservice.getMilestone('1942283261')
     .subscribe((data:Milestone)=>this.Milestone=data);
   }
+
+  chechForImage() {
+    if(this.Milestone.imageUrl==undefined){
+      return '/assets/Image/help.jpg';
+      // return 'https://www.bungie.net/'+this.Milestone.imageUrl;
+    }else{
+      // return '/assets/Image/help.jpg';
+      return 'https://www.bungie.net/'+this.Milestone.imageUrl;
+
+    }
+  }
 }

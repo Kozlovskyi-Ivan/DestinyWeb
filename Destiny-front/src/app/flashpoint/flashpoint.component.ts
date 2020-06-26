@@ -12,44 +12,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlashpointComponent implements OnInit {
 
-  name?: string;
-  description?: string;
-  Activities?: Activities[];
-  image?: string;
+  Milestone?:Milestone=new Milestone();
+  // name?: string;
+  // description?: string;
+  // Activities?: Activities[];
+  // image?: string;
   constructor(private dataservice: DataserviceService) { }
 
   ngOnInit() {
-    this.dataservice.getMilestone('463010297')
-    .subscribe((data: Milestone) => {this.name = data.name, this.description = data.description;});
+    // this.dataservice.getMilestone('463010297')
+    // .subscribe((data: Milestone) => {this.name = data.name, this.description = data.description;});
+    // let callback= await this.dataservice.getMilestoneAsync('463010297');
+    // this.name=callback.name;
+    // this.description=callback.description;
+    // this.image=callback.imageUrl;
+    // this.chechForImage();
+    this.getDataOnInit();
+  }
+  async getDataOnInit() {
+    let callback = await this.dataservice.getMilestoneAsync('463010297');
+    this.Milestone=callback;
+    // this.name = callback.name;
+    // this.description = callback.description;
+    // this.image = callback.imageUrl;
     this.chechForImage();
   }
   chechForImage() {
-    switch (this.name) {
+    if(!(this.Milestone===undefined)){
+    switch (this.Milestone.name) {
       case 'FLASHPOINT: NESSUS':
-       this.image = '/assets/Image/patrol_nessus.jpg';
-       return this.image;
+        this.Milestone.imageUrl = '/assets/Image/patrol_nessus.jpg';
+        return this.Milestone.imageUrl;
       case 'FLASHPOINT: TANGLED SHORE':
-       this.image = '/assets/Image/Tangled_Shore.jpg';
-       return this.image;
+        this.Milestone.imageUrl = '/assets/Image/Tangled_Shore.jpg';
+        return this.Milestone.imageUrl;
       case 'FLASHPOINT: EDZ':
-       this.image = '/assets/Image/patrol_edz.jpg';
-       return this.image;
+        this.Milestone.imageUrl = '/assets/Image/patrol_edz.jpg';
+        return this.Milestone.imageUrl;
       case 'FLASHPOINT: TITAN':
-       this.image = '/assets/Image/patrol_titan.jpg';
-       return this.image;
+        this.Milestone.imageUrl = '/assets/Image/patrol_titan.jpg';
+        return this.Milestone.imageUrl;
       case 'FLASHPOINT: IO':
-       this.image = '/assets/Image/patrol_Io.jpg';
-       return this.image;
+        this.Milestone.imageUrl = '/assets/Image/patrol_Io.jpg';
+        return this.Milestone.imageUrl;
       case 'FLASHPOINT: MERCURY':
-       this.image = '/assets/Image/freeroam_mercury.jpg';
-       return this.image;
+        this.Milestone.imageUrl = '/assets/Image/freeroam_mercury.jpg';
+        return this.Milestone.imageUrl;
       case 'FLASHPOINT: MARS':
-       this.image = '/assets/Image/free_roam_polaris.jpg';
-       return this.image;
+        this.Milestone.imageUrl = '/assets/Image/free_roam_polaris.jpg';
+        return this.Milestone.imageUrl;
       default:
-        this.image = '/assets/Image/help.jpg';
-        return this.image;
+        this.Milestone.imageUrl = '/assets/Image/help.jpg';
+        return this.Milestone.imageUrl;
     }
+  }else{
+
   }
+  }
+
+
 
 }
