@@ -1,6 +1,8 @@
-<div [ngStyle]="{'background-image':'url('+'https://www.bungie.net/'+Milestone.imageUrl+')'}" class="back">
-  <div class="lineTop"></div>
-  <img src='https://www.bungie.net/{{RaidLeviathan[0].icon}}' class="icon">
+<!-- <div [ngStyle]="{'background-image':'url('+'https://www.bungie.net/'+Milestone.imageUrl+')'}" class="back"> -->
+  <div [ngStyle]="{'background-image':'url('+'https://www.bungie.net/'+getBackImage()+')'}" class="back">
+    <div class="lineTop"></div>
+  <!-- <img src='https://www.bungie.net/{{RaidLeviathan[0].icon}}' class="icon"> -->
+  <img src='https://www.bungie.net/{{getIcon()}}' class="icon">
   <div class="title">{{Milestone.name}}</div>
   <div class="row">
   <div class="child" *ngFor="let Activity of RaidLeviathan" >

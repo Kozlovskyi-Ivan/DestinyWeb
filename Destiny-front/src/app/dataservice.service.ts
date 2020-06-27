@@ -51,6 +51,11 @@ export class DataserviceService {
     .toPromise();
   }
 
+  async getActivitiesAsync(name: string){
+    return await this.http.get<Activities[]>(this.url + '/' + 'Milestones' + '/Nightfall/' + name)
+    .toPromise();
+  }
+
 
 
 }
