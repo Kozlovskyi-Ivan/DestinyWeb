@@ -1,10 +1,8 @@
 <!-- <div [ngStyle]="{'background-image':'url('+'https://www.bungie.net/'+Milestone.imageUrl+')' }"class="back"> -->
   <div [ngStyle]="{'background-image':'url('+chechForImage()+')' }"class="back">
   <div class="lineTop"></div>
-  <!-- <img src='https://www.bungie.net/{{Activities[0].icon}}' class="icon"> -->
-  <img src='https://www.bungie.net/{{getIcon()}}' class="icon">
-  <!-- <div class="title">{{Activities[0].description}}</div> -->
-  <div class="title">{{getDescription()}}</div>
+  <img src='https://www.bungie.net/{{Activities[0].icon}}' class="icon">
+  <div class="title">{{Activities[0].description}}</div>
   <div class="row">
     <div class="child" *ngFor="let Activity of Activities">
       <div><h3>{{Activity.name}}</h3>

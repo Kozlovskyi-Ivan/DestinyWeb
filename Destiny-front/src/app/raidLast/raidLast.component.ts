@@ -20,4 +20,5 @@ export class RaidLastComponent implements OnInit {
     this.Dataservice.getActivities('3181387331')
     .subscribe((data:Activities[])=>this.Activities=data);
   }
+
 }

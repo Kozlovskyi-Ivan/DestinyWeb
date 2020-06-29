@@ -11,44 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NightfallComponent implements OnInit {
 
-  Activities?: Activities[];
-  Milestone?: Milestone=new Milestone();
-  constructor(private dataservice: DataserviceService) { }
+  Activities?:Activities[]=[];
+  Milestone?:Milestone;
+  constructor(private dataservice:DataserviceService ) { }
 
   ngOnInit() {
-    // this.dataservice.getActivities('1942283261')
-    //   .subscribe((data: Activities[]) => { this.Activities = data });
-    // this.dataservice.getMilestone('1942283261')
-    //   .subscribe((data: Milestone) => this.Milestone = data);
-    this.getDataOnInit();
-  }
-  async getDataOnInit(){
-    this.Activities=await this.dataservice.getActivitiesAsync('1942283261');
-    this.Milestone=await this.dataservice.getMilestoneAsync('1942283261');
+    this.dataservice.getActivities('1942283261')
+    .subscribe((data: Activities[])=>{this.Activities=data});
+    this.dataservice.getMilestone('1942283261')
+    .subscribe((data:Milestone)=>this.Milestone=data);
   }
 
   chechForImage() {
-    if (this.Milestone.imageUrl === undefined) {
+    if(this.Milestone.imageUrl==undefined){
       return '/assets/Image/help.jpg';
       // return 'https://www.bungie.net/'+this.Milestone.imageUrl;
-    } else {
+    }else{
       // return '/assets/Image/help.jpg';
-      return 'https://www.bungie.net/' + this.Milestone.imageUrl;
+      return 'https://www.bungie.net/'+this.Milestone.imageUrl;
 
-    }
-  }
-  getIcon(){
-    if(this.Activities===undefined){
-      // this.getIcon();
-    }else{
-      return this.Activities[0].icon;
-    }
-  }
-  getDescription(){
-    if(this.Activities===undefined){
-      // this.getIcon();
-    }else{
-      return this.Activities[0].description;
     }
   }
 }
