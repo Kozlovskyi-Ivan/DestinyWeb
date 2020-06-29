@@ -48,11 +48,12 @@ export class DataserviceService {
 
   async getMilestoneAsync(name: string) {
     return await this.http.get<Milestone>(this.url + '/' + 'Milestones' + '/' + name)
-      .toPromise();
+    .toPromise();
   }
-  async getActivitiesAsync(name: string) {
+
+  async getActivitiesAsync(name: string){
     return await this.http.get<Activities[]>(this.url + '/' + 'Milestones' + '/Nightfall/' + name)
-      .toPromise();
+    .toPromise();
   }
 
 

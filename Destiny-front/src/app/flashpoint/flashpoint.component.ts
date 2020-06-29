@@ -1,6 +1,6 @@
-import { Milestone } from 'src/types/Milestone';
 import { Activities } from './../../types/Activities';
 import { DataserviceService } from './../dataservice.service';
+import { Milestone } from './../../types/Milestone';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -12,8 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlashpointComponent implements OnInit {
 
-  Milestone?: Milestone;
-  MilestoneProm:Promise<Milestone>;
+  Milestone?: Milestone = new Milestone();
   // name?: string;
   // description?: string;
   // Activities?: Activities[];

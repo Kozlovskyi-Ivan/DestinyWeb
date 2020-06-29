@@ -12,31 +12,13 @@ export class RaidPastComponent implements OnInit {
 
   Milestone?:Milestone;
   Activities?:Activities[];
-  constructor(private dataservice:DataserviceService) { }
+  constructor(private Dataservice:DataserviceService) { }
 
   ngOnInit() {
-    // this.Dataservice.getMilestone('1342567285')
-    // .subscribe((data:Milestone)=>this.Milestone=data);
-    // this.Dataservice.getActivities('1342567285')
-    // .subscribe((data:Activities[])=>this.Activities=data);
-    this.getDataOnInit();
+    this.Dataservice.getMilestone('1342567285')
+    .subscribe((data:Milestone)=>this.Milestone=data);
+    this.Dataservice.getActivities('1342567285')
+    .subscribe((data:Activities[])=>this.Activities=data);
+  }
 
-  }
-  async getDataOnInit() {
-    this.Milestone = await this.dataservice.getMilestoneAsync('1342567285');
-    this.Activities = await this.dataservice.getActivitiesAsync('1342567285');
-  }
-  getIcon() {
-    if (this.Activities === undefined) {
-    } else {
-      return this.Activities[0].icon;
-    }
-  }
-  getBackImage() {
-    if (this.Milestone === undefined) {
-      return '/assets/Image/help.jpg';
-    } else {
-      return this.Milestone.imageUrl;
-    }
-  }
 }
