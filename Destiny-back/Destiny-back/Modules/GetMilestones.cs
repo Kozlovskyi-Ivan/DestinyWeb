@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 
 namespace Destiny_back.Modules
 {
-    public class GetFromDbControllerMilestone
+    public class GetMilestones: IMilestoneGet
     {
+        //Milestone-class gets entities from DBcontext.
+        //Milestone is entity with week Activities
+        //Activities contains information about itself and modifiers
         ApplicationContext context;
-        public GetFromDbControllerMilestone(ApplicationContext context)
+
+        public GetMilestones()
         {
-            this.context = context;
+            this.context = new ApplicationContext();
         }
         public Milestone GetMilestone(uint id)
         {
@@ -44,6 +48,23 @@ namespace Destiny_back.Modules
                             select n).ToList();
                             //select new { n.name, n.description, n.icon, n.Modifiers };
             return nightfall;
+        }
+        private bool disposed = false;
+        public virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

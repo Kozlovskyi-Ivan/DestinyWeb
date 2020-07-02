@@ -14,10 +14,12 @@ namespace Destiny_back.Controllers
     [ApiController]
     public class MilestonesController : ControllerBase
     {
-        GetFromDbControllerMilestone GetFromDb;
+        GetMilestones getMilestone;
         public MilestonesController()
         {
-            GetFromDb = new GetFromDbControllerMilestone(new ApplicationContext());
+            //GetFromDb = new GetFromDbControllerMilestone(new ApplicationContext());
+
+            getMilestone = new GetMilestones();
         }
 
         [HttpGet]
@@ -27,7 +29,7 @@ namespace Destiny_back.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var milestone = GetFromDb.GetMilestoneAll();
+            var milestone = getMilestone.GetMilestoneAll();
 
             if (milestone == null)
             {
@@ -44,7 +46,7 @@ namespace Destiny_back.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var milestone = GetFromDb.GetMilestone(id);
+            var milestone = getMilestone.GetMilestone(id);
 
             if (milestone==null)
             {
@@ -60,7 +62,7 @@ namespace Destiny_back.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var activity = GetFromDb.GetActivity(id);
+            var activity = getMilestone.GetActivity(id);
 
             if (activity == null)
             {
@@ -77,7 +79,7 @@ namespace Destiny_back.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var nightfall = GetFromDb.GetNightfall(id);
+            var nightfall = getMilestone.GetNightfall(id);
             if (nightfall == null)
             {
                 return NotFound();
