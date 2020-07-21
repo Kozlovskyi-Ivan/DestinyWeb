@@ -1,6 +1,6 @@
 import { Milestone } from './../types/Milestone';
 import { Activities } from './../types/Activities';
-import { Injectable } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 import { throwError } from 'rxjs/internal/observable/throwError';
@@ -21,7 +21,7 @@ export class DataserviceService {
   getMilestone(name: string) {
     return this.http.get(this.url + '/' + 'Milestones' + '/' + name).pipe(
       retry(3), // retry a failed request up to 3 times
-      catchError(this.handleError) // then handle the error
+      catchError(this.handleError)// then handle the error
     );
   }
   getActivities(name: string) {
@@ -46,10 +46,13 @@ export class DataserviceService {
       'Something bad happened; please try again later.');
   };
 
-  async getMilestoneAsync(name: string) {
-    return await this.http.get<Milestone>(this.url + '/' + 'Milestones' + '/' + name)
-    .toPromise();
-  }
+  // async getMilestoneAsync(name: string) {
+  //   // return await this.http.get(this.url + '/' + 'Milestones' + '/' + name).toPromise().then(v=>{
+  //   //   return v;
+  //   // });
+  //   return await this.http.get<Milestone>(this.url + '/' + 'Milestones' + '/' + name).toPromise().then(v=>{return v;
+  //   },catchError(this.handleError));
+  // }
 
 
 

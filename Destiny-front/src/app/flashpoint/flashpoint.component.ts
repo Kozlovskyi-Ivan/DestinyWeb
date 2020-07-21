@@ -29,9 +29,9 @@ export class FlashpointComponent implements OnInit {
     // this.chechForImage();
     this.getDataOnInit();
   }
-  async getDataOnInit() {
-    let callback = await this.dataservice.getMilestoneAsync('463010297');
-    this.Milestone=callback;
+  getDataOnInit() {
+    this.dataservice.getMilestone('463010297')
+    .subscribe((data: Milestone) => {this.Milestone=data});
     // this.name = callback.name;
     // this.description = callback.description;
     // this.image = callback.imageUrl;

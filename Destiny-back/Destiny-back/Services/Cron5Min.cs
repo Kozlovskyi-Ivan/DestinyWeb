@@ -11,11 +11,14 @@ namespace Destiny_back.Services
     public class Cron5Min: CronJobService
     {
         private readonly ILogger<Cron5Min> _logger;
+        //private readonly IScheduleConfig<CronReset> con;
+
 
         public Cron5Min(IScheduleConfig<CronReset> config, ILogger<Cron5Min> logger)
             : base(config.CronExpression, config.TimeZoneInfo)
         {
             _logger = logger;
+            //con = config;
         }
 
         public override Task StartAsync(CancellationToken cancellationToken)

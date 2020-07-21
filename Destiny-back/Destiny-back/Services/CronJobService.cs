@@ -35,8 +35,10 @@ namespace Destiny_back.Services
                 timer = new System.Timers.Timer(delay.TotalMilliseconds);
                 timer.Elapsed += async (sender, args) =>
                 {
+
                     timer.Dispose();  // reset and dispose timer
                     timer = null;
+
 
                     if (!cancellationToken.IsCancellationRequested)
                     {

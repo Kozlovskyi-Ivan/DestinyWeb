@@ -39,14 +39,18 @@ namespace Destiny_back
 
             services.AddCronJob<CronReset>(c =>
             {
+                //c.TimeZoneInfo = TimeZoneInfo.Utc;
+                //c.CronExpression = @"1 17 * * 2";
                 c.TimeZoneInfo = TimeZoneInfo.Utc;
-                c.CronExpression = @"1 17 * * 2";
+                c.CronExpression = @"*/10 * * * *";
             });
-            services.AddCronJob<Cron5Min>(c =>
-            {
-                c.TimeZoneInfo = TimeZoneInfo.Utc;
-                c.CronExpression = @"*/5 * * * *";
-            });
+            //services.AddCronJob<Cron5Min>(c =>
+            //{
+            //    //c.TimeZoneInfo = TimeZoneInfo.Utc;
+            //    //c.CronExpression = @"*/1 * * * *";
+            //    c.TimeZoneInfo = TimeZoneInfo.Utc;
+            //    c.CronExpression = @"* * * * *";
+            //});
 
         }
 
@@ -63,10 +67,10 @@ namespace Destiny_back
             //    scope.ServiceProvider.GetService<ApplicationContext>().Database.Migrate();
             //}
             //start download 
-            using (var data = new ParseData())
-            {
-                data.Start();
-            }
+            //using (var data = new ParseData())
+            //{
+            //    data.Start();
+            //}
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseRouting();
